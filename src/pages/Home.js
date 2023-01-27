@@ -5,7 +5,7 @@ import { PageWrapper } from "../components/shared";
 import { useProducts } from "../hooks";
 
 export default function Home() {
-  const { products } = useProducts();
+  const { products } = useProducts(); //TODO: error/loading
 
   return (
     <StyledHome>
@@ -23,7 +23,6 @@ export default function Home() {
 
 const StyledHome = styled.div`
   ${PageWrapper}
-  margin-top: 60px;
 
   > h1 {
     font-weight: 600;

@@ -5,4 +5,5 @@ export const PageWrapper = css`
   min-height: 100vh;
   height: max-content;
   padding: 5% 10%;
+  margin-top: 60px;
 `;

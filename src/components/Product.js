@@ -1,6 +1,7 @@
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import priceFormater from "../utils/priceFormater";
 
 export default function Product({ product }) {
   return (
@@ -22,15 +23,7 @@ export default function Product({ product }) {
   );
 }
 
-function priceFormater(value) {
-  return (value / 100).toLocaleString("pt-br", {
-    style: "currency",
-    currency: "BRL",
-  });
-}
-
 const StyledButton = styled(Button)`
-  width: max-content;
   margin: 0 auto;
   background-color: #eae2d1;
   &:hover {
@@ -40,5 +33,5 @@ const StyledButton = styled(Button)`
 
 const StyledCard = styled(Card)`
   background-color: inherit;
-  box-shadow: 0 0 10px -4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 9px -4px rgba(0, 0, 0, 0.25);
 `;
