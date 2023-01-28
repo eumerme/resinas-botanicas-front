@@ -1,15 +1,18 @@
 import { css } from "styled-components";
 
-export const ButtonBase = css`
+export const ButtonWrapper = css`
   width: max-content;
   height: max-content;
-  // color: ${({ theme }) => theme.text};
   padding: 0.75rem 1.2rem;
-  // border: 1px solid ${({ theme }) => theme.text};
+  border: 1px solid #9ba17bdb;
   border-radius: 0.4rem;
   cursor: pointer;
   transition: all 400ms ease;
-  background-color: transparent;
+  background-color: #c2ca96db;
   outline: none;
   font-size: 1rem;
+
+  &:hover {
+    background-color: transparent;
+  }
 `;

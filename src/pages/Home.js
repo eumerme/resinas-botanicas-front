@@ -1,31 +1,51 @@
-import { Row, Col } from "react-bootstrap";
+import { useQuery } from "react-query";
 import styled from "styled-components";
-import Product from "../components/Product";
-import { PageWrapper } from "../components/shared";
-import { useProducts } from "../hooks";
+import HomeProduct from "../components/HomeProduct";
+import { DisplayCenter } from "../components/shared";
+import { productsApi } from "../services/productsApi";
 
 export default function Home() {
-  const { products } = useProducts(); //TODO: error/loading
+  const { data: products, isLoading, error } = useQuery("home-products", productsApi.getProducts); //TODO
 
   return (
-    <StyledHome>
-      <h1>Últimos lançamentos</h1>
-      <Row>
+    <>
+      <Title>Últimos lançamentos</Title>
+      <HomeProducts>
         {products?.map((product) => (
-          <Col key={product.id} m={12} md={6} lg={4} xl={3}>
-            <Product product={product} />
-          </Col>
+          <HomeProduct key={product.id} product={product} />
         ))}
-      </Row>
-    </StyledHome>
+      </HomeProducts>
+    </>
   );
 }
 
-const StyledHome = styled.div`
-  ${PageWrapper}
+const Title = styled.h1`
+  font-weight: 600;
+  font-size: 1.5rem;
+`;
 
-  > h1 {
-    font-weight: 600;
-    font-size: 20px;
+const HomeProducts = styled.div`
+  width: 100%;
+  ${DisplayCenter}
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-top: 3rem;
+
+  /*   width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding-top: 3rem;
+  align-items: center;
+
+  @media screen and (max-width: 1074px) {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 1.5rem;
   }
+
+  @media screen and (max-width: 771px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  } */
 `;

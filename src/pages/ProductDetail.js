@@ -1,58 +1,46 @@
-import { useEffect } from "react";
-import { Button, Card, Image } from "react-bootstrap";
+import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { PageWrapper } from "../components/shared";
-import { useProductDetail } from "../hooks";
+import { ButtonWrapper, Error, ImageWrapper, Loading } from "../components/shared";
+import { productsApi } from "../services/productsApi";
 import priceFormater from "../utils/priceFormater";
 
 export default function ProductDetail() {
   const { id } = useParams();
-  const { productDetail: product, getProductDetail } = useProductDetail();
-
-  const getDetail = async () => {
-    await getProductDetail(id);
-  };
-
-  useEffect(() => {
-    getDetail();
-  }, [id]);
+  const { data: product, isLoading, error } = useQuery("product-detail", () => productsApi.getProductDetail(id)); //TODO
 
   return (
-    <StyledProductDetail>
+    <>
+      {isLoading && <Loading />}
+      {error && <Error>Ocorreu um erro, por favor tente em instantes.</Error>}
       {product && (
         <Content>
-          <ImageWrapper>
-            <Image src={product.image} alt={product.name} fluid rounded />
-          </ImageWrapper>
+          <Image src={product.image} alt={product.name} />
+
           <div>
-            <Title>
-              <strong>{product.name}</strong>
-            </Title>
-            <Card.Text className="my-3">{product.description}</Card.Text>
-            <Card.Text className="my-5">
-              <strong>{priceFormater(product.price)}</strong>
-            </Card.Text>
+            <Title>{product.name}</Title>
+            <Text>{product.description}</Text>
 
-            <Card.Text className="my-3">Status: {product.inStock > 0 ? "Em estoque" : "Sem estoque :("}</Card.Text>
-            <Card.Text className="my-3">Total: {priceFormater(product.price)}</Card.Text>
+            <Text price>{priceFormater(product.price)}</Text>
 
-            <StyledButton variant="light" disabled={product.inStock === 0}>
-              Adicionar ao carrinho
-            </StyledButton>
+            {product.inStock > 0 && <Badge inStock>Disponível :)</Badge>}
+            {product.inStock === 0 && <Badge>Indiponível :(</Badge>}
+
+            <Text>Total: {priceFormater(product.price)}</Text>
+
+            <StyledButton disabled={product.inStock === 0}>Adicionar ao carrinho</StyledButton>
           </div>
         </Content>
       )}
-    </StyledProductDetail>
+    </>
   );
 }
 
-const StyledProductDetail = styled.div`
-  ${PageWrapper}
-`;
-
-const ImageWrapper = styled.div`
+const Image = styled.img`
+  ${ImageWrapper}
+  max-width: 400px;
   box-shadow: 0 0 8px -4px rgba(0, 0, 0, 0.25);
+  margin: 0 auto;
 `;
 
 const Content = styled.div`
@@ -70,14 +58,37 @@ const Content = styled.div`
   }
 `;
 
-const Title = styled.div`
-  font-size: 25px;
+const Title = styled.h1`
+  font-size: 1.7rem;
+  font-weight: 600;
 `;
 
-const StyledButton = styled(Button)`
+const Text = styled.p`
+  font-size: 1rem;
+  padding: 1rem 0;
+
+  ${({ price }) => {
+    if (price) {
+      return `
+        font-size: 1.3rem;
+        font-weight: 500;
+			`;
+    }
+  }}
+`;
+
+const Badge = styled.div`
+  width: max-content;
+  padding: 8px 15px;
+  background-color: ${({ inStock }) => (inStock ? "#198754" : "#dc3545")};
+  margin-top: 2rem;
+  border-radius: 30px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+`;
+
+const StyledButton = styled.button`
+  ${ButtonWrapper}
   margin-top: 10px;
-  background-color: #cfbb8f;
-  &:hover {
-    background-color: #e2bc70;
-  }
 `;
