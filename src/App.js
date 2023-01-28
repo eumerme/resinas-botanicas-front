@@ -4,24 +4,29 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import PageContainer from "./components/PageContainer";
 import QueryProvider from "./contexts/QueryClientContext";
+import { StoreProvider } from "./contexts/StoreContext";
 import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail";
+import { ToastContainer } from "react-toastify";
 
 export default function App() {
   return (
     <>
       <GlobalStyle />
+      <ToastContainer />
       <QueryProvider>
-        <Router>
-          <Header />
-          <PageContainer>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/product/:id" element={<ProductDetail />} />
-            </Routes>
-          </PageContainer>
-          <Footer />
-        </Router>
+        <StoreProvider>
+          <Router>
+            <Header />
+            <PageContainer>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/product/:id" element={<ProductDetail />} />
+              </Routes>
+            </PageContainer>
+            <Footer />
+          </Router>
+        </StoreProvider>
       </QueryProvider>
     </>
   );

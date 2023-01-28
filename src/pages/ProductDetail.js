@@ -1,13 +1,15 @@
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { ButtonWrapper, Error, ImageWrapper, Loading } from "../components/shared";
+import { Badge, ButtonWrapper, Error, ImageWrapper, Loading } from "../components/shared";
+import { useCart } from "../contexts/StoreContext";
 import { productsApi } from "../services/productsApi";
-import priceFormater from "../utils/priceFormater";
+import { priceFormater, addToCartHandler } from "../utils";
 
 export default function ProductDetail() {
   const { id } = useParams();
-  const { data: product, isLoading, error } = useQuery("product-detail", () => productsApi.getProductDetail(id)); //TODO
+  const { data: product, isLoading, error } = useQuery("product-detail", () => productsApi.getProductDetail(id));
+  const cart = useCart();
 
   return (
     <>
@@ -28,7 +30,9 @@ export default function ProductDetail() {
 
             <Text>Total: {priceFormater(product.price)}</Text>
 
-            <StyledButton disabled={product.inStock === 0}>Adicionar ao carrinho</StyledButton>
+            <StyledButton onClick={() => addToCartHandler({ product, cart })} disabled={product.inStock === 0}>
+              Adicionar ao carrinho
+            </StyledButton>
           </div>
         </Content>
       )}
@@ -75,17 +79,6 @@ const Text = styled.p`
 			`;
     }
   }}
-`;
-
-const Badge = styled.div`
-  width: max-content;
-  padding: 8px 15px;
-  background-color: ${({ inStock }) => (inStock ? "#198754" : "#dc3545")};
-  margin-top: 2rem;
-  border-radius: 30px;
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: 500;
 `;
 
 const StyledButton = styled.button`

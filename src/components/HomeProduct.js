@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import priceFormater from "../utils/priceFormater";
+import { useCart } from "../contexts/StoreContext";
+import { addToCartHandler, priceFormater } from "../utils";
 import { ImageWrapper, ButtonWrapper } from "./shared";
 
 export default function HomeProduct({ product }) {
+  const cart = useCart();
+
   return (
     <Content>
       <Link to={`/product/${product.id}`}>
@@ -11,7 +14,7 @@ export default function HomeProduct({ product }) {
         <Title>{product.name}</Title>
         <Text>{priceFormater(product.price)}</Text>
       </Link>
-      <StyledButton>Adicionar ao carrinho</StyledButton>
+      <StyledButton onClick={() => addToCartHandler({ product, cart })}>Adicionar ao carrinho</StyledButton>
     </Content>
   );
 }

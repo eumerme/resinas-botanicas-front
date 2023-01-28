@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import styled from "styled-components";
 import HomeProduct from "../components/HomeProduct";
-import { DisplayCenter } from "../components/shared";
+import { DisplayCenter, Error, Loading } from "../components/shared";
 import { productsApi } from "../services/productsApi";
 
 export default function Home() {
@@ -9,12 +9,18 @@ export default function Home() {
 
   return (
     <>
-      <Title>Últimos lançamentos</Title>
-      <HomeProducts>
-        {products?.map((product) => (
-          <HomeProduct key={product.id} product={product} />
-        ))}
-      </HomeProducts>
+      {isLoading && <Loading />}
+      {error && <Error>Ocorreu um erro, por favor tente em instantes.</Error>}
+      {products && (
+        <>
+          <Title>Últimos lançamentos</Title>
+          <HomeProducts>
+            {products?.map((product) => (
+              <HomeProduct key={product.id} product={product} />
+            ))}
+          </HomeProducts>
+        </>
+      )}
     </>
   );
 }

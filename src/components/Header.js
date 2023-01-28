@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { DisplayCenter } from "./shared";
+import { Badge, DisplayCenter } from "./shared";
 import { BsPerson } from "react-icons/bs";
 import { IoCartOutline } from "react-icons/io5";
+import { useCart } from "../contexts/StoreContext";
 
 export default function Header() {
+  const { state } = useCart();
+  const { cart } = state;
+  const cartQuantity = cart.items.reduce((acc, curr) => acc + curr.quantity, 0);
+
   return (
     <Nav>
       <Logo to="/">Resinas Botânicas</Logo>
@@ -12,6 +17,7 @@ export default function Header() {
       <Menu>
         <Item to="cart">
           <IoCartOutline className="icon" />
+          {cart.items.length > 0 && <CartItems>{cartQuantity}</CartItems>}
         </Item>
         <Item to="login">
           <BsPerson className="icon" />
@@ -72,4 +78,17 @@ const Item = styled(Link)`
   padding: 0 1rem;
   cursor: pointer;
   text-decoration: none;
+  position: relative;
+`;
+
+const CartItems = styled(Badge)`
+  min-width: 25px;
+  padding: 0.5rem;
+  margin-top: 0;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: 10px;
+  font-size: 10px;
+  font-weight: 600;
 `;
