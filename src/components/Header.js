@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Badge, DisplayCenter } from "./shared";
+import { BadgeWrapper, DisplayCenter } from "./shared";
 import { BsPerson } from "react-icons/bs";
 import { IoCartOutline } from "react-icons/io5";
-import { useCart } from "../contexts/StoreContext";
+import { useCart } from "../hooks";
 
 export default function Header() {
   const { state } = useCart();
@@ -17,7 +17,7 @@ export default function Header() {
       <Menu>
         <Item to="cart">
           <IoCartOutline className="icon" />
-          {cart.items.length > 0 && <CartItems>{cartQuantity}</CartItems>}
+          {cart.items.length > 0 && <Badge error>{cartQuantity}</Badge>}
         </Item>
         <Item to="login">
           <BsPerson className="icon" />
@@ -81,14 +81,14 @@ const Item = styled(Link)`
   position: relative;
 `;
 
-const CartItems = styled(Badge)`
+const Badge = styled.div`
+  ${BadgeWrapper}
   min-width: 25px;
   padding: 0.5rem;
-  margin-top: 0;
   border-radius: 50%;
+  font-size: 10px;
+  font-weight: 600;
   position: absolute;
   right: 0;
   top: 10px;
-  font-size: 10px;
-  font-weight: 600;
 `;

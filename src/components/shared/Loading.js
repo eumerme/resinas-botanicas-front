@@ -1,9 +1,9 @@
 import { MagnifyingGlass } from "react-loader-spinner";
-import { ContainerLE } from "./Error";
+import { ContainerML } from "./Message";
 
 export function Loading() {
   return (
-    <ContainerLE>
+    <ContainerML>
       <MagnifyingGlass
         visible={true}
         height="80"
@@ -14,6 +14,6 @@ export function Loading() {
         glassColor="#c0efff"
         color="#e15b64"
       />
-    </ContainerLE>
+    </ContainerML>
   );
 }

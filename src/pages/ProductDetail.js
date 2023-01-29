@@ -1,8 +1,8 @@
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { Badge, ButtonWrapper, Error, ImageWrapper, Loading } from "../components/shared";
-import { useCart } from "../contexts/StoreContext";
+import { ButtonWrapper, Message, ImageWrapper, Loading, BadgeWrapper } from "../components/shared";
+import { useCart } from "../hooks";
 import { productsApi } from "../services/productsApi";
 import { priceFormater, addToCartHandler } from "../utils";
 
@@ -14,27 +14,29 @@ export default function ProductDetail() {
   return (
     <>
       {isLoading && <Loading />}
-      {error && <Error>Ocorreu um erro, por favor tente em instantes.</Error>}
+      {error && <Message>Ocorreu um erro, por favor tente em instantes.</Message>}
       {product && (
-        <Content>
-          <Image src={product.image} alt={product.name} />
+        <>
+          <Content>
+            <Image src={product.image} alt={product.name} />
 
-          <div>
-            <Title>{product.name}</Title>
-            <Text>{product.description}</Text>
+            <div>
+              <Title>{product.name}</Title>
+              <Text>{product.description}</Text>
 
-            <Text price>{priceFormater(product.price)}</Text>
+              <Text price>{priceFormater(product.price)}</Text>
 
-            {product.inStock > 0 && <Badge inStock>Disponível :)</Badge>}
-            {product.inStock === 0 && <Badge>Indiponível :(</Badge>}
+              {product.inStock > 0 && <Badge success>Disponível :)</Badge>}
+              {product.inStock === 0 && <Badge error>Indiponível :(</Badge>}
 
-            <Text>Total: {priceFormater(product.price)}</Text>
+              <Text>Total: {priceFormater(product.price)}</Text>
 
-            <StyledButton onClick={() => addToCartHandler({ product, cart })} disabled={product.inStock === 0}>
-              Adicionar ao carrinho
-            </StyledButton>
-          </div>
-        </Content>
+              <StyledButton onClick={() => addToCartHandler({ product, cart })} disabled={product.inStock === 0}>
+                Adicionar ao carrinho
+              </StyledButton>
+            </div>
+          </Content>
+        </>
       )}
     </>
   );
@@ -55,6 +57,7 @@ const Content = styled.div`
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 6rem;
+  padding-top: 3rem;
 
   @media screen and (max-width: 852px) {
     grid-template-columns: 1fr;
@@ -76,6 +79,7 @@ const Text = styled.p`
       return `
         font-size: 1.3rem;
         font-weight: 500;
+        margin-bottom: 2rem;
 			`;
     }
   }}
@@ -84,4 +88,8 @@ const Text = styled.p`
 const StyledButton = styled.button`
   ${ButtonWrapper}
   margin-top: 10px;
+`;
+
+const Badge = styled.div`
+  ${BadgeWrapper}
 `;

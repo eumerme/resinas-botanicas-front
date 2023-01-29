@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { useCart } from "../contexts/StoreContext";
+import { useCart } from "../hooks";
 import { addToCartHandler, priceFormater } from "../utils";
 import { ImageWrapper, ButtonWrapper } from "./shared";
 
@@ -22,7 +22,6 @@ export default function HomeProduct({ product }) {
 const Content = styled.div`
   max-width: 30%;
   min-height: 400px;
-  background-color: inherit;
   box-shadow: 0 0 9px -4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   padding: 1.5rem;
@@ -43,6 +42,7 @@ const Content = styled.div`
 
 const Image = styled.img`
   ${ImageWrapper}
+  margin-bottom: 15px;
 `;
 
 const Title = styled.h1`

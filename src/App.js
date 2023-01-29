@@ -8,6 +8,7 @@ import { StoreProvider } from "./contexts/StoreContext";
 import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail";
 import { ToastContainer } from "react-toastify";
+import Cart from "./pages/Cart";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/product/:id" element={<ProductDetail />} />
+                <Route path="/cart" element={<Cart />} />
               </Routes>
             </PageContainer>
             <Footer />

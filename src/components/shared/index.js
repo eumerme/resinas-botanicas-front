@@ -3,4 +3,4 @@ export * from "./buttonWrapper";
 export * from "./imageWrapper";
 export * from "./badgeWrapper";
 export * from "./Loading";
-export * from "./Error";
+export * from "./Message";

@@ -5,5 +5,4 @@ export const ImageWrapper = css`
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 10px;
-  margin-bottom: 15px;
 `;

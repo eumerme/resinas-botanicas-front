@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import { DisplayCenter } from "./displayCenter";
 
-export function Error({ children }) {
-  return <ContainerLE>{children}</ContainerLE>;
+export function Message({ children }) {
+  return <ContainerML>{children}</ContainerML>;
 }
 
-export const ContainerLE = styled.div`
+export const ContainerML = styled.div`
   ${DisplayCenter}
   width: 100%;
   height: 100%;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
 `;

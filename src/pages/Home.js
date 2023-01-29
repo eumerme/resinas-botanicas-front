@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import styled from "styled-components";
 import HomeProduct from "../components/HomeProduct";
-import { DisplayCenter, Error, Loading } from "../components/shared";
+import { DisplayCenter, Message, Loading } from "../components/shared";
 import { productsApi } from "../services/productsApi";
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       {isLoading && <Loading />}
-      {error && <Error>Ocorreu um erro, por favor tente em instantes.</Error>}
+      {error && <Message>Ocorreu um erro, por favor tente em instantes.</Message>}
       {products && (
         <>
           <Title>Últimos lançamentos</Title>
@@ -25,9 +25,10 @@ export default function Home() {
   );
 }
 
-const Title = styled.h1`
+export const Title = styled.h1`
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
+  padding-bottom: 3rem;
 `;
 
 const HomeProducts = styled.div`
@@ -35,7 +36,7 @@ const HomeProducts = styled.div`
   ${DisplayCenter}
   flex-wrap: wrap;
   gap: 2rem;
-  padding-top: 3rem;
+  // padding-top: 3rem;
 
   /*   width: 100%;
   display: grid;
