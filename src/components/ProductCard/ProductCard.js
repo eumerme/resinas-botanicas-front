@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../../hooks";
 import { addToCartHandler, priceFormater } from "../../utils";
-import { Content, Image, StyledButton, Text, Title } from "./HomeProductElements";
+import { Content, Image, StyledButton, Text, Title } from "./ProductCardElements";
 
-export function HomeProduct({ product }) {
+export function ProductCard({ product }) {
   const cart = useCart();
 
   return (

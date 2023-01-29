@@ -1,6 +1,6 @@
 export * from "./CartItem/CartItem";
 export * from "./Navbar/Navbar";
-export * from "./HomeProduct/HomeProduct";
+export * from "./ProductCard/ProductCard";
 export * from "./Footer";
 export * from "./PageContainer";
 export * from "./GoBack";

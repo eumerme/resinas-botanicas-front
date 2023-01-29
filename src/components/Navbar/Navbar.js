@@ -13,6 +13,7 @@ export function Navbar() {
       <Logo to="/">Resinas Botânicas</Logo>
 
       <Menu>
+        <Item to="categories">Categorias</Item>
         <Item to="cart">
           <IoCartOutline className="icon" />
           {cart.items.length > 0 && <Badge error>{cartQuantity}</Badge>}

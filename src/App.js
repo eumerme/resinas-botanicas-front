@@ -4,7 +4,7 @@ import { Footer, Navbar, PageContainer } from "./components";
 import QueryProvider from "./contexts/QueryClientContext";
 import { StoreProvider } from "./contexts/StoreContext";
 import { ToastContainer } from "react-toastify";
-import { Cart, Home, ProductDetail } from "./pages";
+import { Cart, Home, ProductDetail, Categories } from "./pages";
 
 export default function App() {
   return (
@@ -20,6 +20,7 @@ export default function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/product/:id" element={<ProductDetail />} />
                 <Route path="/cart" element={<Cart />} />
+                <Route path="/categories" element={<Categories />} />
               </Routes>
             </PageContainer>
             <Footer />

@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { HomeProduct } from "../../components";
+import { ProductCard } from "../../components";
 import { Message, Loading } from "../../components/shared";
 import { productsApi } from "../../services/productsApi";
 import { HomeProducts, Title } from "./HomeElements";
@@ -16,7 +16,7 @@ export function Home() {
           <Title>Últimos lançamentos</Title>
           <HomeProducts>
             {products?.map((product) => (
-              <HomeProduct key={product.id} product={product} />
+              <ProductCard key={product.id} product={product} />
             ))}
           </HomeProducts>
         </>

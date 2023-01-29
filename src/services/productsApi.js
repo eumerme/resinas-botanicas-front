@@ -1,4 +1,4 @@
-const baseURL = process.env.REACT_APP_API_BASE_URL;
+import { baseURL } from "./apiUrl";
 
 async function getProducts() {
   const response = await fetch(`${baseURL}/products/home`, {
@@ -8,10 +8,18 @@ async function getProducts() {
 }
 
 async function getProductDetail(id) {
-  const response = await fetch(`${baseURL}/products/id/${id}`, {
+  const response = await fetch(`${baseURL}/products/${id}`, {
     method: "GET",
   });
   return response.json();
 }
 
-export const productsApi = { getProducts, getProductDetail };
+async function getProductByCategory(id) {
+  const response = await fetch(`${baseURL}/products/category/${id}`, {
+    method: "GET",
+  });
+
+  return response.json();
+}
+
+export const productsApi = { getProducts, getProductDetail, getProductByCategory };

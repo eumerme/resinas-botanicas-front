@@ -29,18 +29,18 @@ export function CartItem({ item, cart }) {
         </ImageBox>
 
         <InfoBox>
-          <Link to={`/product/${item.id}`}>
+          <Link to={`/product/${item?.id}`}>
             {item.name}
             <Total>{priceFormater(item.price)}</Total>
           </Link>
         </InfoBox>
 
         <CountBox>
-          <button onClick={() => updateCartHandler(item.quantity - 1)} disabled={item.quantity === 1}>
+          <button onClick={() => updateCartHandler(item?.quantity - 1)} disabled={item.quantity === 1}>
             <CiCircleMinus />
           </button>
           <p>{item.quantity}</p>
-          <button onClick={() => updateCartHandler(item.quantity + 1)} disabled={item.quantity === item.inStock}>
+          <button onClick={() => updateCartHandler(item?.quantity + 1)} disabled={item.quantity === item.inStock}>
             <CiCirclePlus />
           </button>
         </CountBox>

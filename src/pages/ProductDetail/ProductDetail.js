@@ -60,4 +60,4 @@ export function ProductDetail() {
   );
 }
 
-//TODO go back button
+//TODO go back button, go to cart link
