@@ -38,7 +38,6 @@ export const Text = styled.p`
       return `
         font-size: 1.3rem;
         font-weight: 500;
-        margin-bottom: 2rem;
 			`;
     }
   }}
@@ -51,4 +50,17 @@ export const StyledButton = styled.button`
 
 export const Badge = styled.div`
   ${BadgeWrapper}
+`;
+
+export const SelectBox = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+
+  > select {
+    border-radius: 30px;
+    padding: 0 7px 0 10px;
+    outline: none;
+    cursor: pointer;
+  }
 `;

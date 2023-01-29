@@ -1,15 +1,19 @@
+import { useState } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { Message, Loading } from "../../components/shared";
 import { useCart } from "../../hooks";
 import { productsApi } from "../../services/productsApi";
 import { priceFormater, addToCartHandler } from "../../utils";
-import { Badge, Content, Image, StyledButton, Text, Title } from "./ProductDetailElements";
+import { Badge, Content, Image, SelectBox, StyledButton, Text, Title } from "./ProductDetailElements";
 
 export function ProductDetail() {
   const { id } = useParams();
   const { data: product, isLoading, error } = useQuery("product-detail", () => productsApi.getProductDetail(id));
   const cart = useCart();
+
+  const stock = Array.from(Array(product?.inStock).keys());
+  const [quantity, setQuantity] = useState(1);
 
   return (
     <>
@@ -26,12 +30,26 @@ export function ProductDetail() {
 
               <Text price>{priceFormater(product.price)}</Text>
 
-              {product.inStock > 0 && <Badge success>Disponível :)</Badge>}
+              {product.inStock > 0 && (
+                <SelectBox>
+                  <Badge success>Disponível :)</Badge>
+                  <select onChange={(e) => setQuantity(Number(e.target.value))}>
+                    {stock?.map((qty) => (
+                      <option key={qty} value={qty + 1}>
+                        {qty + 1}
+                      </option>
+                    ))}
+                  </select>
+                </SelectBox>
+              )}
               {product.inStock === 0 && <Badge error>Indiponível :(</Badge>}
 
-              <Text>Total: {priceFormater(product.price)}</Text>
+              <Text>Subtotal: {priceFormater(product.price * quantity)}</Text>
 
-              <StyledButton onClick={() => addToCartHandler({ product, cart })} disabled={product.inStock === 0}>
+              <StyledButton
+                onClick={() => addToCartHandler({ product, cart, choosenQty: quantity })}
+                disabled={product.inStock === 0}
+              >
                 Adicionar ao carrinho
               </StyledButton>
             </div>
@@ -41,3 +59,5 @@ export function ProductDetail() {
     </>
   );
 }
+
+//TODO go back button
