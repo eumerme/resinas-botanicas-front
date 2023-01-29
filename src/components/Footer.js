@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { DisplayCenter } from "./shared";
 
-export default function Footer() {
+export function Footer() {
   return <StyledFooter>Copyright &copy; Resinas Botânicas | All rights reserved</StyledFooter>;
 }
 
