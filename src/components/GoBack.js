@@ -2,7 +2,7 @@ import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-export default function GoBack({ detail }) {
+export function GoBack({ detail }) {
   const navigate = useNavigate();
 
   return (
