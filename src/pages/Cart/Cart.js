@@ -1,10 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
-import { CartItem, GoBack } from "../../components";
-import { Message } from "../../components/shared";
+import { CartItem } from "../../components";
+import { Message, Top } from "../../components/shared";
 import { useCart } from "../../hooks";
 import { priceFormater } from "../../utils";
-import { Title } from "../Home/HomeElements";
-import { CartContent, CheckoutContent, ItemsBox, MsgContent, StyledButton, TopBox } from "./CartElements";
+import { CartContent, CheckoutContent, ItemsBox, MsgContent, StyledButton } from "./CartElements";
 
 export function Cart() {
   const navigate = useNavigate();
@@ -22,10 +21,7 @@ export function Cart() {
 
   return (
     <>
-      <TopBox>
-        <Title>Carrinho</Title>
-        <GoBack />
-      </TopBox>
+      <Top>Carrinho</Top>
       {items.length === 0 && (
         <Message>
           <MsgContent>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import { Message, Loading } from "../../components/shared";
+import { Message, Loading, Top } from "../../components/shared";
 import { useCart } from "../../hooks";
 import { productsApi } from "../../services/productsApi";
 import { priceFormater, addToCartHandler } from "../../utils";
@@ -9,11 +9,7 @@ import { Badge, Content, Image, SelectBox, StyledButton, Text, Title } from "./P
 
 export function ProductDetail() {
   const { id } = useParams();
-  const {
-    data: product,
-    isLoading,
-    error,
-  } = useQuery(["product-detail"], async () => productsApi.getProductDetail(id));
+  const { data: product, isLoading, error } = useQuery("product-detail", async () => productsApi.getProductDetail(id));
   const cart = useCart();
 
   const stock = Array.from(Array(product?.inStock).keys());
@@ -25,6 +21,7 @@ export function ProductDetail() {
       {error && <Message>Ocorreu um erro, por favor tente em instantes.</Message>}
       {product && (
         <>
+          <Top product />
           <Content>
             <Image src={product.image} alt={product.name} />
 

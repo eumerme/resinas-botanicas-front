@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import { ButtonWrapper } from "../../components/shared";
 
-export const TopBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
 export const MsgContent = styled.div`
   > a {
     text-decoration: underline;

@@ -8,7 +8,7 @@ import { CountBox, Icon, Image, ImageBox, InfoBox, Item, Total } from "./CartIte
 
 export function CartItem({ item, cart }) {
   const { dispatch, TYPES } = cart;
-  const { data: product, error } = useQuery(["product-cart"], async () => productsApi.getProductDetail(item.id));
+  const { data: product, error } = useQuery("product-cart", async () => productsApi.getProductDetail(item.id));
 
   const updateCartHandler = (quantity) => {
     if (product.inStock > quantity) return;
