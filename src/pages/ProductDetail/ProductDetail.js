@@ -9,7 +9,11 @@ import { Badge, Content, Image, SelectBox, StyledButton, Text, Title } from "./P
 
 export function ProductDetail() {
   const { id } = useParams();
-  const { data: product, isLoading, error } = useQuery("product-detail", () => productsApi.getProductDetail(id));
+  const {
+    data: product,
+    isLoading,
+    error,
+  } = useQuery(["product-detail"], async () => productsApi.getProductDetail(id));
   const cart = useCart();
 
   const stock = Array.from(Array(product?.inStock).keys());
@@ -47,7 +51,7 @@ export function ProductDetail() {
               <Text>Subtotal: {priceFormater(product.price * quantity)}</Text>
 
               <StyledButton
-                onClick={() => addToCartHandler({ product, cart, choosenQty: quantity })}
+                onClick={() => addToCartHandler({ product, cart, chosenQty: quantity })}
                 disabled={product.inStock === 0}
               >
                 Adicionar ao carrinho
@@ -60,4 +64,4 @@ export function ProductDetail() {
   );
 }
 
-//TODO go back button
+//TODO go back button, go to cart link

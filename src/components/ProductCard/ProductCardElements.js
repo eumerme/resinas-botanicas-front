@@ -10,6 +10,10 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 export const Image = styled.img`

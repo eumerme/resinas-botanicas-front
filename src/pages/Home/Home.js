@@ -1,11 +1,12 @@
 import { useQuery } from "react-query";
-import { HomeProduct } from "../../components";
+import { images } from "../../assets/mock/data";
+import { ProductCard, CarouselContainer } from "../../components";
 import { Message, Loading } from "../../components/shared";
 import { productsApi } from "../../services/productsApi";
 import { HomeProducts, Title } from "./HomeElements";
 
 export function Home() {
-  const { data: products, isLoading, error } = useQuery("home-products", productsApi.getProducts);
+  const { data: products, isLoading, error } = useQuery(["home-products"], productsApi.getProducts);
 
   return (
     <>
@@ -13,10 +14,15 @@ export function Home() {
       {error && <Message>Ocorreu um erro, por favor tente em instantes.</Message>}
       {products && (
         <>
+          <CarouselContainer>
+            {images.map((image, index) => (
+              <img src={image.url} alt={index} key={index} />
+            ))}
+          </CarouselContainer>
           <Title>Últimos lançamentos</Title>
           <HomeProducts>
             {products?.map((product) => (
-              <HomeProduct key={product.id} product={product} />
+              <ProductCard key={product.id} product={product} />
             ))}
           </HomeProducts>
         </>
