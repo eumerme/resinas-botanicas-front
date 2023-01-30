@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import { Message, Loading } from "../../components/shared";
+import { GoBack } from "../../components";
+import { Message, Loading, TopBox } from "../../components/shared";
 import { useCart } from "../../hooks";
 import { productsApi } from "../../services/productsApi";
 import { priceFormater, addToCartHandler } from "../../utils";
@@ -25,6 +26,9 @@ export function ProductDetail() {
       {error && <Message>Ocorreu um erro, por favor tente em instantes.</Message>}
       {product && (
         <>
+          <TopBox product>
+            <GoBack />
+          </TopBox>
           <Content>
             <Image src={product.image} alt={product.name} />
 
