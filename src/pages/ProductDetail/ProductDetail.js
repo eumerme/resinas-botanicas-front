@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { Message, Loading, Top } from "../../components/shared";
-import { useCart } from "../../hooks";
+import { useCart } from "../../hooks/useCart";
 import { productsApi } from "../../services/productsApi";
 import { priceFormater, addToCartHandler } from "../../utils";
 import { Badge, Content, Image, SelectBox, StyledButton, Text, Title } from "./ProductDetailElements";
@@ -23,7 +23,7 @@ export function ProductDetail() {
         <>
           <Top product />
           <Content>
-            <Image src={product.image} alt={product.name} />
+            <Image src={product.mainImage} alt={product.name} />
 
             <div>
               <Title>{product.name}</Title>

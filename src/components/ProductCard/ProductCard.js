@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useCart } from "../../hooks";
+import { useCart } from "../../hooks/useCart";
 import { addToCartHandler, priceFormater } from "../../utils";
 import { Content, Image, StyledButton, Text, Title } from "./ProductCardElements";
 
@@ -9,7 +9,7 @@ export function ProductCard({ product }) {
   return (
     <Content>
       <Link to={`/product/${product.id}`}>
-        <Image src={product.image} alt={product.name} />
+        <Image src={product.mainImage} alt={product.name} />
         <Title>{product.name}</Title>
         <Text>{priceFormater(product.price)}</Text>
       </Link>

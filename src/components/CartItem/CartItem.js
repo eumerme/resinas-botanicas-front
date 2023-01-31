@@ -11,7 +11,7 @@ export function CartItem({ item, cart }) {
   const { data: product, error } = useQuery("product-cart", async () => productsApi.getProductDetail(item.id));
 
   const updateCartHandler = (quantity) => {
-    if (product.inStock > quantity) return;
+    if (product.inStock < quantity) return;
 
     dispatch({ type: TYPES.addToCart, payload: { ...item, quantity } });
   };
@@ -25,7 +25,7 @@ export function CartItem({ item, cart }) {
       {error && <Message>Ocorreu um erro ao carregar os produtos, por favor tente em instantes</Message>}
       <Item>
         <ImageBox>
-          <Image src={item.image} alt={item.name} />
+          <Image src={item.mainImage} alt={item.name} />
         </ImageBox>
 
         <InfoBox>

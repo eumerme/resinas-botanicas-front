@@ -1,9 +1,9 @@
 import { createContext, useReducer } from "react";
 
-const StoreContext = createContext();
+const CartContext = createContext();
 const initialState = Object.freeze({
   cart: {
-    items: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : [],
+    items: JSON.parse(localStorage.getItem("RB_CartItems")) || [],
   },
 });
 const TYPES = Object.freeze({
@@ -22,24 +22,27 @@ function reducer(state, action) {
       ? cart.items.map((item) => (item.id === itemExists.id ? newItem : item))
       : [...cart.items, newItem];
 
-    localStorage.setItem("cartItems", JSON.stringify(items));
-    return { ...state, cart: { ...cart, items } };
+    return saveData({ state, cart, items });
   }
 
   if (action.type === "removeFromCart") {
     const items = cart.items.filter((item) => item.id !== newItem.id);
 
-    localStorage.setItem("cartItems", JSON.stringify(items));
-    return { ...state, cart: { ...cart, items } };
+    return saveData({ state, cart, items });
   }
 
   return state;
 }
 
-function StoreProvider({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  return <StoreContext.Provider value={{ state, dispatch, TYPES }}>{children}</StoreContext.Provider>;
+function saveData({ state, cart, items }) {
+  localStorage.setItem("RB_CartItems", JSON.stringify(items));
+  return { ...state, cart: { ...cart, items } };
 }
 
-export { StoreContext, StoreProvider };
+function CartProvider({ children }) {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return <CartContext.Provider value={{ state, dispatch, TYPES }}>{children}</CartContext.Provider>;
+}
+
+export { CartContext, CartProvider };

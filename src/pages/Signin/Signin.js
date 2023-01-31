@@ -9,13 +9,14 @@ import { signinResolver } from "../../schemas";
 import { Message, Top } from "../../components/shared";
 import { useMutation } from "react-query";
 import { userApi } from "../../services/userApi";
+import { useUserData } from "../../hooks";
 
 export function Signin() {
   const { search } = useLocation();
   const redirectToUrl = new URLSearchParams(search).get("redirect");
   const redirect = redirectToUrl ? redirectToUrl : "/";
-
   const navigate = useNavigate();
+  const { dispatch, TYPES } = useUserData();
 
   const {
     register,
@@ -39,11 +40,18 @@ export function Signin() {
     if (error) toast.error(error.response.data.message);
 
     if (isSuccess) {
-      localStorage.setItem("resinasBotanicas", JSON.stringify(userData));
+      dispatch({ type: TYPES.userSignin, payload: userData });
       toast.success("Login realizado com sucesso");
       navigate(redirect);
     }
   }, [error, isSuccess]);
+
+  const { state } = useUserData();
+  useEffect(() => {
+    if (state.userData) {
+      navigate(redirect);
+    }
+  }, []);
 
   return (
     <>

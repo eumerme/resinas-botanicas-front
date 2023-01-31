@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { CartItem } from "../../components";
 import { Message, Top } from "../../components/shared";
-import { useCart } from "../../hooks";
+import { useCart } from "../../hooks/useCart";
 import { priceFormater } from "../../utils";
 import { CartContent, CheckoutContent, ItemsBox, MsgContent, StyledButton } from "./CartElements";
 

@@ -30,13 +30,45 @@ export const Logo = styled(Link)`
 export const Menu = styled.ul`
   display: flex;
   align-items: center;
+  font-size: 1.3rem;
 
   .icon {
     font-size: 2rem;
   }
+
+  > span {
+    margin-left: 1rem;
+
+    &:hover {
+      color: #e6cf5b;
+    }
+  }
 `;
 
-export const Item = styled(Link)`
+export const Wrapper = styled.span`
+  margin-left: 1rem;
+
+  &:hover {
+    color: #e6cf5b;
+  }
+
+  > div > div {
+    border: none;
+    box-shadow: 0 0 9px -4px rgba(0, 0, 0, 0.25);
+
+    .active {
+      background-color: #eae6cb !important;
+      color: #000000 !important;
+    }
+    a {
+      &:visited {
+        background-color: #fbf8e3;
+      }
+    }
+  }
+`;
+
+export const Item = styled.div`
   height: 80px;
   font-weight: 500;
   color: #ffffff;
@@ -46,6 +78,10 @@ export const Item = styled(Link)`
   cursor: pointer;
   text-decoration: none;
   position: relative;
+
+  &:hover {
+    color: #e6cf5b;
+  }
 `;
 
 export const Badge = styled.div`
