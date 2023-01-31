@@ -33,7 +33,7 @@ export function Signup() {
 
     if (isSuccess) {
       toast.success("Cadastro feito com sucesso");
-      navigate("/redirect=signin");
+      navigate("/signin");
     }
   }, [error, isSuccess]);
 
@@ -67,7 +67,7 @@ export function Signup() {
 
           <StyledButton type="submit" disabled={isLoading}>
             {isLoading && <ThreeDots color="#ffffff" height={13} width={51} />}
-            {!isLoading && <>"Cadastrar" </>}
+            {!isLoading && <>{"Cadastrar"}</>}
           </StyledButton>
         </Form>
       </Wrapper>

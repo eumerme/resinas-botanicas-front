@@ -40,4 +40,5 @@ export const StyledButton = styled.button`
 export const LinkBox = styled.div`
   ${DisplayCenter}
   margin-top: 32px;
+  text-align: center;
 `;
