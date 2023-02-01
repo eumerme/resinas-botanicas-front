@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { LinkBox, StyledButton, Wrapper } from "../../components/Auth";
+import { LinkBox, StyledButton, Wrapper, Form } from "../../components";
 import { ThreeDots } from "react-loader-spinner";
-import { Form } from "../../components/Auth";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { signupResolver } from "../../schemas";
@@ -32,7 +31,7 @@ export function Signup() {
     if (error) toast.error(error.response.data.message);
 
     if (isSuccess) {
-      toast.success("Cadastro feito com sucesso");
+      toast.success("Cadastro realizado com sucesso");
       navigate("/signin");
     }
   }, [error, isSuccess]);

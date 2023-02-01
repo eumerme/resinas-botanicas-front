@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { LinkBox, StyledButton, Wrapper } from "../../components/Auth";
+import { LinkBox, StyledButton, Wrapper, Form } from "../../components";
 import { ThreeDots } from "react-loader-spinner";
-import { Form } from "../../components/Auth";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { signinResolver } from "../../schemas";
@@ -13,8 +12,8 @@ import { useUserData } from "../../hooks";
 
 export function Signin() {
   const { search } = useLocation();
-  const redirectToUrl = new URLSearchParams(search).get("redirect");
-  const redirect = redirectToUrl ? redirectToUrl : "/";
+  const query = new URLSearchParams(search).get("redirect");
+  const redirect = query ? query : "/";
   const navigate = useNavigate();
   const { dispatch, TYPES } = useUserData();
 

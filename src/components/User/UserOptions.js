@@ -16,7 +16,7 @@ export function UserOptions() {
         <NavDropdown.Item>Compras</NavDropdown.Item>
       </LinkContainer>
       <NavDropdown.Divider />
-      <Link className="dropdown-item" to="/signout" onClick={() => dispatch({ type: TYPES.userSignout })}>
+      <Link className="dropdown-item" to="/" onClick={() => dispatch({ type: TYPES.userSignout })}>
         Sair
       </Link>
     </NavDropdown>

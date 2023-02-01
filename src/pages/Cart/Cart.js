@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
-import { CartItem } from "../../components";
+import { CartItem, CheckoutButton } from "../../components";
 import { Message, Top } from "../../components/shared";
+import { useUserData } from "../../hooks";
 import { useCart } from "../../hooks/useCart";
 import { priceFormater } from "../../utils";
 import { CartContent, CheckoutContent, ItemsBox, MsgContent, StyledButton } from "./CartElements";
@@ -15,9 +16,9 @@ export function Cart() {
   const itemsQty = items.reduce((acc, curr) => acc + curr.quantity, 0);
   const subtotal = items.reduce((acc, curr) => acc + curr.price * curr.quantity, 0);
 
-  const checkoutHandler = () => {
-    navigate("/signin?redirect=/shipping");
-  };
+  const {
+    state: { userData },
+  } = useUserData();
 
   return (
     <>
@@ -40,7 +41,8 @@ export function Cart() {
             <h1>{`Subtotal (${itemsQty} itens):`}</h1>
             <h2>{`${priceFormater(subtotal)}`}</h2>
 
-            <StyledButton onClick={checkoutHandler}>Comprar</StyledButton>
+            {!userData && <StyledButton onClick={() => navigate("/signin?redirect=/cart")}>Faça login!</StyledButton>}
+            {userData && <CheckoutButton cartItems={items} />}
           </CheckoutContent>
         </ItemsBox>
       )}
