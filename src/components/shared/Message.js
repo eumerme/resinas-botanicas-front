@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { DisplayCenter } from "./displayCenter";
 
-export function Message({ children }) {
-  return <ContainerML>{children}</ContainerML>;
+export function Message({ children, formError }) {
+  return <ContainerML formError>{children}</ContainerML>;
 }
 
 export const ContainerML = styled.div`
@@ -11,4 +11,15 @@ export const ContainerML = styled.div`
   height: 100%;
   text-align: center;
   font-size: 1.5rem;
+
+  ${({ formError }) => {
+    if (formError) {
+      return `
+          font-size: 0.7rem;
+          margin-top: 5px;
+          color:#dc3545;
+          font-weigth: 400;
+      `;
+    }
+  }}
 `;

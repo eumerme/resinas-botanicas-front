@@ -30,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
         line-height: 1;
         font-family: 'Montserrat', sans-serif;
         background-color: #FAF8F1;
+        font-size: 1rem;
     }
     ol, ul {
         list-style: none;

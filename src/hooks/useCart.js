@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { StoreContext } from "../contexts/StoreContext";
+import { CartContext } from "../contexts/CartContext";
 
 export function useCart() {
-  const context = useContext(StoreContext);
+  const context = useContext(CartContext);
   if (!context) {
     throw new Error("Cart context not found");
   }

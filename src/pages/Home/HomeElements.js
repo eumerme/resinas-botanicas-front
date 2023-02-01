@@ -1,11 +1,5 @@
 import styled from "styled-components";
 
-export const Title = styled.h1`
-  font-weight: 600;
-  font-size: 1.7rem;
-  padding-bottom: 3rem;
-`;
-
 export const HomeProducts = styled.div`
   width: 100%;
   display: grid;

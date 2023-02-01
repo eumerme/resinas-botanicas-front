@@ -2,11 +2,12 @@ import { useQuery } from "react-query";
 import { images } from "../../assets/mock/data";
 import { ProductCard, CarouselContainer } from "../../components";
 import { Message, Loading } from "../../components/shared";
+import { Title } from "../../components/shared/Top";
 import { productsApi } from "../../services/productsApi";
-import { HomeProducts, Title } from "./HomeElements";
+import { HomeProducts } from "./HomeElements";
 
 export function Home() {
-  const { data: products, isLoading, error } = useQuery(["home-products"], productsApi.getProducts);
+  const { data: products, isLoading, error } = useQuery("home-products", productsApi.getProducts);
 
   return (
     <>
