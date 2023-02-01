@@ -1,4 +1,6 @@
+import { Carousel, Image } from "react-bootstrap";
 import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 import { images } from "../../assets/mock/data";
 import { ProductCard, CarouselContainer } from "../../components";
 import { Message, Loading } from "../../components/shared";
@@ -16,9 +18,15 @@ export function Home() {
       {products && (
         <>
           <CarouselContainer>
-            {images.map((image, index) => (
-              <img src={image.url} alt={index} key={index} />
-            ))}
+            <Carousel pause="hover">
+              {images.map((image, index) => (
+                <Carousel.Item key={index}>
+                  <Link to={`category/${image.id}`}>
+                    <Image src={image.url} alt={index} fluid />
+                  </Link>
+                </Carousel.Item>
+              ))}
+            </Carousel>
           </CarouselContainer>
           <Title>Últimos lançamentos</Title>
           <HomeProducts>
