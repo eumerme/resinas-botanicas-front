@@ -29,8 +29,9 @@ const GlobalStyle = createGlobalStyle`
     body {
         line-height: 1;
         font-family: 'Montserrat', sans-serif;
-        background-color: #FAF8F1;
-        font-size: 1rem;
+       background-color: #cabd89;
+      // background-color : #d8cdb0 ;
+       font-size: 1rem;
     }
     ol, ul {
         list-style: none;

@@ -22,7 +22,7 @@ export const ImageBox = styled.div`
   ${DisplayCenter}
   width: 60%;
   border-radius: 10px;
-  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.5), 2px 2px 5px rgba(94, 104, 121, 0.3);
+  box-shadow: -1px -1px 10px rgba(255, 255, 255, 0.5), 2px 2px 5px rgba(94, 104, 121, 0.3);
 
   @media screen and (max-width: 750px) {
     grid-row-end: span 2;

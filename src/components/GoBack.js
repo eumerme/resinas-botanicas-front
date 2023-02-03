@@ -14,6 +14,6 @@ export function GoBack({ detail }) {
 
 const Wrapper = styled.div`
   font-size: 1.5rem;
-  color: #9ba17bdb;
+  color: #6a5525d6;
   cursor: pointer;
 `;

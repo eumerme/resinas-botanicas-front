@@ -7,9 +7,11 @@ export function CarouselContainer({ children }) {
 const Wrapper = styled.div`
   margin-bottom: 2rem;
   border-radius: 10px;
-  box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 10px -2px rgba(94, 104, 121, 0.3);
+  //box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.25);
 
   .carousel-inner {
     border-radius: 10px;
+    max-height: 500px;
   }
 `;
