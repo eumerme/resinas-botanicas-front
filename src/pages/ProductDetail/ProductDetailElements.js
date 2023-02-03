@@ -4,7 +4,8 @@ import { BadgeWrapper, ButtonWrapper, ImageWrapper } from "../../components/shar
 export const Image = styled.img`
   ${ImageWrapper}
   max-width: 400px;
-  box-shadow: 0 0 8px -4px rgba(0, 0, 0, 0.25);
+  box-shadow: -1px -1px 10px rgba(255, 255, 255, 0.5);
+  // box-shadow: 0 0 8px -4px rgba(0, 0, 0, 0.25);
   margin: 0 auto;
 `;
 

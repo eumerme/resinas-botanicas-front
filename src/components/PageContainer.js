@@ -9,5 +9,5 @@ const Container = styled.div`
   min-height: 100vh;
   height: max-content;
   padding: 3rem 10%;
-  margin-top: 70px;
+  padding-top: 120px;
 `;

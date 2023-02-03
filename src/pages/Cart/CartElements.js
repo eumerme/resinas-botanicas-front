@@ -23,6 +23,9 @@ export const CartContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.3rem;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: -1px -1px 10px rgba(255, 255, 255, 0.5);
 `;
 
 export const CheckoutContent = styled.div`
@@ -30,7 +33,7 @@ export const CheckoutContent = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  box-shadow: 0 0 9px -4px rgba(0, 0, 0, 0.25);
+  box-shadow: -1px -1px 10px rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   padding: 1.5rem;
 
