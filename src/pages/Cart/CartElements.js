@@ -12,7 +12,7 @@ export const ItemsBox = styled.div`
   height: max-content;
   display: grid;
   grid-template-columns: 2fr 0.9fr;
-  gap: 1.5rem;
+  gap: 1.8rem;
 
   @media screen and (max-width: 1024px) {
     grid-template-columns: 1fr;
@@ -45,10 +45,6 @@ export const CheckoutContent = styled.div`
   h2 {
     font-size: 1.3rem;
     padding: 1rem 0 1.4rem;
-  }
-
-  @media screen and (max-width: 1024px) {
-    margin-top: 2rem;
   }
 `;
 

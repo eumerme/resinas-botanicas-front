@@ -6,7 +6,6 @@ import { ProductCard, CarouselContainer } from "../../components";
 import { Message, Loading } from "../../components/shared";
 import { Title } from "../../components/shared/Top";
 import { productsApi } from "../../services/productsApi";
-import { HomeProducts } from "./HomeElements";
 
 export function Home() {
   const { data: products, isLoading, error } = useQuery("home-products", productsApi.getProducts);
@@ -29,11 +28,7 @@ export function Home() {
             </Carousel>
           </CarouselContainer>
           <Title>Últimos lançamentos</Title>
-          <HomeProducts>
-            {products?.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </HomeProducts>
+          <ProductCard products={products} />
         </>
       )}
     </>

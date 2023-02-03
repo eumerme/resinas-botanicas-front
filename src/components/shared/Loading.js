@@ -1,18 +1,17 @@
-import { MagnifyingGlass } from "react-loader-spinner";
+import { ColorRing } from "react-loader-spinner";
 import { ContainerML } from "./Message";
 
 export function Loading() {
   return (
     <ContainerML>
-      <MagnifyingGlass
+      <ColorRing
         visible={true}
         height="80"
         width="80"
-        ariaLabel="MagnifyingGlass-loading"
+        ariaLabel="blocks-loading"
         wrapperStyle={{}}
-        wrapperClass="MagnifyingGlass-wrapper"
-        glassColor="#c0efff"
-        color="#e15b64"
+        wrapperClass="blocks-wrapper"
+        colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
       />
     </ContainerML>
   );

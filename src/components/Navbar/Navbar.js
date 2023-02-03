@@ -2,7 +2,7 @@ import { IoCartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { useCart, useUserData } from "../../hooks";
 import { useCategories } from "../../hooks/useCategories";
-import { CategoriesOptions } from "../Categories/CategoriesOptions";
+import { CategoriesOptions } from "../CategoriesOptions/CategoriesOptions";
 import { UserOptions } from "../User/UserOptions";
 import { Badge, Item, Logo, Menu, Nav, Wrapper } from "./NavbarElements";
 import { GiButterflyFlower } from "react-icons/gi";
