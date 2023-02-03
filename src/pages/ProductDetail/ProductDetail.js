@@ -21,7 +21,7 @@ export function ProductDetail() {
       {error && <Message>Ocorreu um erro, por favor tente em instantes.</Message>}
       {product && (
         <>
-          <Top product />
+          <Top />
           <Content>
             <Image src={product.mainImage} alt={product.name} />
 

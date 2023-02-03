@@ -6,6 +6,6 @@ export * from "./PageContainer";
 export * from "./GoBack";
 export * from "./Carousel/CarouselContainer";
 export * from "./Auth";
-export * from "./Categories/CategoriesOptions";
+export * from "./CategoriesOptions/CategoriesOptions";
 export * from "./Checkout/CheckoutButton";
 export * from "./User/UserOptions";

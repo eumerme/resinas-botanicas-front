@@ -1,17 +1,17 @@
 import { api } from "./api";
 
 async function getProducts() {
-  const response = await api.get("/api/products/home");
+  const response = await api.get("/products/latest");
   return response.data;
 }
 
 async function getProductDetail(id) {
-  const response = await api.get(`/api/products/${id}`);
+  const response = await api.get(`/products/${id}`);
   return response.data;
 }
 
 async function getProductByCategory(id) {
-  const response = await api.get(`/api/products/category/${id}`);
+  const response = await api.get(`/products/category/${id}`);
   return response.data;
 }
 

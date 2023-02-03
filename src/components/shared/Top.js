@@ -13,7 +13,7 @@ export function Top({ children }) {
 const TopBox = styled.div`
   width: 100%;
   display: flex;
-  justify-content: ${({ product }) => (product ? "flex-end" : "space-between")};
+  justify-content: space-between;
 `;
 
 export const Title = styled.h1`
