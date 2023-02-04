@@ -56,8 +56,6 @@ export function Signin() {
     <>
       <Top>Faça login</Top>
       <Wrapper>
-        {/*    {error && <h5 onClick={() => reset()}>{error}</h5>} */}
-
         <Form onSubmit={handleSubmit(submit)}>
           <input type="email" placeholder="Email" {...register("email")} disabled={isLoading} />
           {errors.email && <Message formError>{errors.email.message}</Message>}

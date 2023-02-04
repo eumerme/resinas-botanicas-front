@@ -10,4 +10,14 @@ async function signin(data) {
   return response.data;
 }
 
-export const userApi = { signup, signin };
+async function getUser(email) {
+  const response = await api.get(`/users/profile/${email}`);
+  return response.data;
+}
+
+async function updateProfile(data) {
+  const response = await api.put("/users/update", data);
+  return response.data;
+}
+
+export const userApi = { signup, signin, getUser, updateProfile };

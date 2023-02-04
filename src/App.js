@@ -3,7 +3,7 @@ import GlobalStyle from "./assets/globalStyle/globalStyle";
 import { Footer, Navbar, PageContainer } from "./components";
 import { QueryProvider, UserProvider, CartProvider } from "./contexts";
 import { ToastContainer } from "react-toastify";
-import { Cart, Home, ProductDetail, Signup, Signin, CheckoutSuccess, Categories } from "./pages";
+import { Cart, Home, ProductDetail, Signup, Signin, CheckoutSuccess, Categories, Profile } from "./pages";
 import { CategoriesProvider } from "./contexts/CategoriesContext";
 
 export default function App() {
@@ -26,6 +26,7 @@ export default function App() {
                     <Route path="/categories/:name/:id" element={<Categories />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/signin" element={<Signin />} />
+                    <Route path="/profile" element={<Profile />} />
                   </Routes>
                 </PageContainer>
                 <Footer />

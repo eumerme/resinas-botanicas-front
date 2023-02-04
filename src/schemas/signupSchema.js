@@ -2,8 +2,8 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 const cpfPattern = "[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}";
-const phonePattern = "([1-9]{2})? ?(?:[2-8]|9[1-9])[0-9]{3}-?[0-9]{4}";
-const requiredField = "Campo obrigatório";
+export const phonePattern = "([1-9]{2})? ?(?:[2-8]|9[1-9])[0-9]{3}-?[0-9]{4}";
+export const requiredField = "Campo obrigatório";
 
 const signupSchema = yup.object().shape({
   name: yup.string().required(requiredField),
@@ -14,7 +14,6 @@ const signupSchema = yup.object().shape({
     .oneOf([yup.ref("password")], "As senhas devem ser iguais")
     .required(requiredField),
   cpf: yup.string().required(requiredField).matches(cpfPattern, "Insira seu CPF"),
-  birthday: yup.date().required("Insira sua data de nascimento"),
   phone: yup.string().required(requiredField).matches(phonePattern, "Insira seu celular incluindo o DDD"),
 });
 
