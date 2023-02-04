@@ -8,6 +8,7 @@ import { signupResolver } from "../../schemas";
 import { Message, Top } from "../../components/shared";
 import { useMutation } from "react-query";
 import { userApi } from "../../services/userApi";
+import { formFormater } from "../../utils";
 
 export function Signup() {
   const navigate = useNavigate();
@@ -20,11 +21,7 @@ export function Signup() {
   const { isSuccess, isLoading, error, mutate } = useMutation(async (formData) => userApi.signup(formData));
 
   const submit = async (data) => {
-    mutate({
-      ...data,
-      cpf: data.cpf.replaceAll(".", "").replace("-", ""),
-      phone: data.phone.replace("(", "").replace(")", "").replace(" ", "").replace("-", ""),
-    });
+    mutate(formFormater.signup(data));
   };
 
   useEffect(() => {
@@ -40,8 +37,6 @@ export function Signup() {
     <>
       <Top>Cadastre-se</Top>
       <Wrapper>
-        {/*    {error && <h5 onClick={() => reset()}>{error}</h5>} */}
-
         <Form onSubmit={handleSubmit(submit)}>
           <input type="text" placeholder="Nome" {...register("name")} disabled={isLoading} />
           {errors.name && <Message formError>{errors.name.message}</Message>}
@@ -51,9 +46,6 @@ export function Signup() {
 
           <input type="text" placeholder="CPF" {...register("cpf")} disabled={isLoading} />
           {errors.cpf && <Message formError>{errors.cpf.message}</Message>}
-
-          <input type="date" placeholder="Data de nascimento" {...register("birthday")} disabled={isLoading} />
-          {errors.birthday && <Message formError>{errors.birthday.message}</Message>}
 
           <input type="text" placeholder="Celular" {...register("phone")} disabled={isLoading} />
           {errors.phone && <Message formError>{errors.phone.message}</Message>}

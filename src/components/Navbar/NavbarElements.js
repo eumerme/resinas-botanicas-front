@@ -21,11 +21,15 @@ export const Nav = styled.nav`
 
 export const Logo = styled(Link)`
   ${DisplayCenter}
-  width: 130px;
-  font-size: 1.7rem;
+  width: 160px;
+  font-size: 1.3rem;
   font-weight: 700;
   text-align: center;
-  font-family: "Dancing Script", cursive;
+  font-family: "Audiowide", cursive;
+
+  .rotate {
+    transform: rotateY(180deg);
+  }
 `;
 
 export const Menu = styled.ul`

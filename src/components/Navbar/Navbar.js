@@ -5,7 +5,7 @@ import { useCategories } from "../../hooks/useCategories";
 import { CategoriesOptions } from "../CategoriesOptions/CategoriesOptions";
 import { UserOptions } from "../User/UserOptions";
 import { Badge, Item, Logo, Menu, Nav, Wrapper } from "./NavbarElements";
-import { GiButterflyFlower } from "react-icons/gi";
+import { GiCottonFlower } from "react-icons/gi";
 
 export function Navbar() {
   const {
@@ -23,7 +23,7 @@ export function Navbar() {
     <Nav>
       <Logo to="/">
         Resinas Botânicas
-        <GiButterflyFlower style={{ fontSize: "4rem" }} />
+        <GiCottonFlower style={{ fontSize: "3rem" }} />
       </Logo>
 
       <Menu>
