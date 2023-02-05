@@ -9,7 +9,7 @@ export function ProductCard({ products }) {
   return (
     <ProductsWrapper>
       {products?.map((product) => (
-        <Content>
+        <Content key={product.id}>
           <Link to={`/product/${product.id}`}>
             <Image src={product.mainImage} alt={product.name} />
             <Title>{product.name}</Title>

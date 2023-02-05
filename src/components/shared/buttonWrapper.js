@@ -13,7 +13,6 @@ export const ButtonWrapper = css`
   outline: none;
   font-size: 1rem;
   box-shadow: 0 0 10px -2px rgba(94, 104, 121, 0.3);
-  //box-shadow: -1px -1px 10px rgba(255, 255, 255, 0.5);
 
   &:hover {
     border: 1px solid #3f6555;

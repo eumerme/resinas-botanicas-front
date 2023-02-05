@@ -1,11 +1,9 @@
 import { IoCartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { useCart, useUserData } from "../../hooks";
-import { useCategories } from "../../hooks/useCategories";
+import { useCart, useUserData, useCategories } from "../../hooks";
 import { CategoriesOptions } from "../CategoriesOptions/CategoriesOptions";
 import { UserOptions } from "../User/UserOptions";
 import { Badge, Item, Logo, Menu, Nav, Wrapper } from "./NavbarElements";
-import { GiCottonFlower } from "react-icons/gi";
 
 export function Navbar() {
   const {
@@ -22,8 +20,7 @@ export function Navbar() {
   return (
     <Nav>
       <Logo to="/">
-        Resinas Botânicas
-        <GiCottonFlower style={{ fontSize: "3rem" }} />
+        Resinas Botânicas <span>🍂</span>
       </Logo>
 
       <Menu>

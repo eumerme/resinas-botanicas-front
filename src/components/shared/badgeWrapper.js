@@ -11,7 +11,6 @@ export const BadgeWrapper = css`
   color: #ffffff;
   font-size: 15px;
   font-weight: 500;
-  //filter: grayscale(50%);
 
   ${({ success, error }) => {
     if (success) {
