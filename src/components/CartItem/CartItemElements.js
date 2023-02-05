@@ -34,7 +34,6 @@ export const ImageBox = styled.div`
 
   @media screen and (max-width: 400px) {
     width: 80%;
-
     grid-row-end: default;
   }
 

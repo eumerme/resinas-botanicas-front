@@ -5,6 +5,10 @@ import { BsInstagram, BsWhatsapp } from "react-icons/bs";
 export function Footer() {
   return (
     <StyledFooter>
+      <p>
+        🚨 Site em construção! Para consultar estoque e valores reais, acesse a página do instagram clicando no ícone
+        abaixo 👇 🚨
+      </p>
       <Wrapper>
         <Socials href="https://www.instagram.com/resinasbotanicas/" target="_blank" rel="noreferrer">
           <BsInstagram />
@@ -27,6 +31,14 @@ const StyledFooter = styled.div`
   text-align: center;
   background-color: #b9a46c;
   box-shadow: -1px -1px 10px rgba(255, 255, 255, 0.5);
+
+  > p {
+    width: 70%;
+    line-height: 2rem;
+    font-size: 1.5rem;
+    padding-bottom: 2rem;
+    font-weight: 500;
+  }
 `;
 
 const Wrapper = styled.div`

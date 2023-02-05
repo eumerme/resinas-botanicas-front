@@ -25,11 +25,14 @@ export const CategoriesBox = styled.div`
   .selected {
     font-size: 1.2rem;
     font-weight: 600;
+    border-bottom: 2px solid #ac3636;
   }
 `;
 
 export const Category = styled.div`
   width: max-content;
-  border-bottom: 2px solid #ac3636;
+  border-bottom: 1px solid #ac3636;
+  border-radius: 10px;
   padding: 1rem;
+  box-shadow: 0 0 9px -4px rgba(0, 0, 0, 0.25);
 `;

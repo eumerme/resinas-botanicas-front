@@ -1,4 +1,4 @@
-import { api } from "./api";
+import { api, createHeaders } from "./api";
 
 async function signup(data) {
   const response = await api.post("/users/signup", data);
@@ -11,7 +11,8 @@ async function signin(data) {
 }
 
 async function getUser(email) {
-  const response = await api.get(`/users/profile/${email}`);
+  const headers = createHeaders();
+  const response = await api.get(`/users/profile/${email}`, headers);
   return response.data;
 }
 

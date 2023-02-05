@@ -1,7 +1,8 @@
-import { api } from "./api";
+import { api, createHeaders } from "./api";
 
 async function getCategories() {
-  const response = await api.get("/categories");
+  const headers = createHeaders();
+  const response = await api.get("/categories", headers);
   return response.data;
 }
 

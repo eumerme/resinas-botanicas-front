@@ -1,6 +1,6 @@
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { phonePattern, requiredField } from "./signupSchema";
+import { requiredField } from "./signupSchema";
 
 const updateProfileSchema = yup.object().shape({
   name: yup.string().required(requiredField),

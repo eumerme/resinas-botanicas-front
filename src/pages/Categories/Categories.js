@@ -7,17 +7,17 @@ import { CategoriesBox, Content, Category } from "./CategoriesElements";
 import { ProductCard } from "../../components";
 
 export function Categories() {
-  const { name, id } = useParams();
+  const { name } = useParams();
   const { categories, isLoading, error } = useCategories();
   const [products, setProducts] = useState([]);
 
   const handleProductsByCategory = async () => {
-    setProducts(await productsApi.getProductByCategory(id));
+    setProducts(await productsApi.getProductByCategory(name));
   };
 
   useEffect(() => {
     handleProductsByCategory();
-  }, [id]);
+  }, [name]);
 
   return (
     <>
@@ -29,10 +29,8 @@ export function Categories() {
           <Content>
             <CategoriesBox>
               {categories.map((category) => (
-                <Category className={category.name === name ? "selected" : ""}>
-                  <Link key={category.id} to={`/categories/${category.name}/${category.id}`}>
-                    {category.name}
-                  </Link>
+                <Category key={category.id} className={category.name === name ? "selected" : ""}>
+                  <Link to={`/categories/${category.name}`}>{category.name}</Link>
                 </Category>
               ))}
             </CategoriesBox>

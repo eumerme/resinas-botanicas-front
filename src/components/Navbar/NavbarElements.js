@@ -16,19 +16,18 @@ export const Nav = styled.nav`
   padding: 0 10%;
   background-color: #b9a46c;
   box-shadow: -1px -1px 10px rgba(255, 255, 255, 0.5);
-  // box-shadow: 0px -1px 10px rgba(0, 0, 0, 0.25);
 `;
 
 export const Logo = styled(Link)`
   ${DisplayCenter}
-  width: 160px;
-  font-size: 1.3rem;
+  width: 130px;
+  font-size: 1.8rem;
   font-weight: 700;
   text-align: center;
-  font-family: "Audiowide", cursive;
+  font-family: "Amatic SC", cursive;
 
-  .rotate {
-    transform: rotateY(180deg);
+  > span {
+    font-size: 1.7rem;
   }
 `;
 

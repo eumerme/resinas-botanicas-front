@@ -5,7 +5,7 @@ const api = axios.create({
 });
 
 function createHeaders() {
-  const userData = JSON.parse(localStorage.getItem("mywallet"));
+  const userData = JSON.parse(localStorage.getItem("RB_UserData"));
 
   if (userData) {
     const config = {

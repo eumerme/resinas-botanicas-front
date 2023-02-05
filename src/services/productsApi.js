@@ -10,8 +10,8 @@ async function getProductDetail(id) {
   return response.data;
 }
 
-async function getProductByCategory(id) {
-  const response = await api.get(`/products/category/${id}`);
+async function getProductByCategory(name) {
+  const response = await api.get(`/products/category/${name}`);
   return response.data;
 }
 

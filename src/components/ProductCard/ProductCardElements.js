@@ -25,10 +25,7 @@ export const ProductsWrapper = styled.div`
 export const Content = styled.div`
   max-width: 100%;
   min-height: 400px;
-  // box-shadow: -1px -1px 10px rgba(255, 255, 255, 0.5);
-  // box-shadow: 0 0 9px -4px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 0 10px -2px rgba(94, 104, 121, 0.3);
-  background-color: #d8cdb1;
+  box-shadow: 0 0 10px -2px rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   padding: 1.5rem;
   display: flex;
@@ -37,6 +34,7 @@ export const Content = styled.div`
 
   &:hover {
     transform: scale(1.05);
+    background-color: #d8cdb1;
   }
 `;
 

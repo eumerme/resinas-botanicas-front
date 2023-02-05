@@ -20,6 +20,8 @@ export const ItemsBox = styled.div`
 `;
 
 export const CartContent = styled.div`
+  width: 100%;
+  height: max-content;
   display: flex;
   flex-direction: column;
   gap: 1.3rem;
