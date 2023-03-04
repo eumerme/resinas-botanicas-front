@@ -33,7 +33,7 @@ export function Cart() {
       {items.length > 0 && (
         <ItemsBox>
           <CartContent>
-            {items.map((item) => (
+            {items?.map((item) => (
               <CartItem key={item.id} item={item} cart={cart} />
             ))}
           </CartContent>

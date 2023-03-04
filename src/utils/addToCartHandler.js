@@ -11,5 +11,6 @@ export function addToCartHandler({ product, cart, chosenQty = 1 }) {
     return;
   }
 
+  toast.success("Adicionado! 🥳");
   dispatch({ type: TYPES.addToCart, payload: { ...product, quantity } });
 }

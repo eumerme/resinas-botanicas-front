@@ -19,7 +19,7 @@ export function Home() {
         <>
           <CarouselContainer>
             <Carousel pause="hover">
-              {categories.map((category, index) => (
+              {categories?.map((category, index) => (
                 <Carousel.Item key={index}>
                   <Link to={`/categories/${category.name}`}>
                     <Image src={category.image} alt={index} fluid />

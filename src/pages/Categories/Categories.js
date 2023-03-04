@@ -28,7 +28,7 @@ export function Categories() {
           <Top>Categoria: {name}</Top>
           <Content>
             <CategoriesBox>
-              {categories.map((category) => (
+              {categories?.map((category) => (
                 <Category key={category.id} className={category.name === name ? "selected" : ""}>
                   <Link to={`/categories/${category.name}`}>{category.name}</Link>
                 </Category>
