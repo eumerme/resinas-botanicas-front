@@ -15,9 +15,7 @@ This project is a simple application that satisfies the needs of Resinas Botâni
 
 ## Technologies
 
-```
 React, axios, bootstrap, react hook form, react query, react toastify, styled components, yup, eslint, prettier
-```
 
 ## Installation Guide
 
