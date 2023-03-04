@@ -12,11 +12,13 @@ export const ContainerML = styled.div`
   text-align: center;
   font-size: 1.5rem;
   color: inherit;
+  margin-bottom: 2rem;
 
   ${({ formError }) => {
     if (formError) {
       return `
           font-size: 0.7rem;
+          margin-bottom: 0;
           margin-top: 5px;
           color:#dc3545;
           font-weigth: 400;

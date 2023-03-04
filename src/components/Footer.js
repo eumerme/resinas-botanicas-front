@@ -13,9 +13,9 @@ export function Footer() {
         <Socials href="https://www.instagram.com/resinasbotanicas/" target="_blank" rel="noreferrer">
           <BsInstagram />
         </Socials>
-        <Socials href="" target="_blank" rel="noreferrer">
+        {/*  <Socials href="" target="_blank" rel="noreferrer">
           <BsWhatsapp />
-        </Socials>
+        </Socials> */}
       </Wrapper>
       Copyright &copy; Resinas Botânicas | All rights reserved
     </StyledFooter>
