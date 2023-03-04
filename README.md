@@ -11,7 +11,7 @@ Resinas Botânicas Frontend is a test ecommerce application currently under deve
 
 ## About
 
-This project is a simple application that meets the needs of Resinas Botânicas virtual store (@resinasbotanicas on Instagram).
+This project is a simple application that meets the needs of Resinas Botânicas virtual store ([@resinasbotanicas](https://www.instagram.com/resinasbotanicas/) on Instagram).
 
 ## Technologies
 
