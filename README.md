@@ -1,6 +1,6 @@
 # resinas-botanicas-front
 
-Resinas Botânicas frontend, a test ecommerce application, still under construction. To use the backend, see [this repository](https://github.com/eumerme/resinas-botanicas-back) and follow the instructions in README.md
+Resinas Botânicas Frontend is a test ecommerce application currently under development. To use the backend, please visit [this repository](https://github.com/eumerme/resinas-botanicas-back) and follow the instructions in the README.md file.
 
 [About](#about) |
 [Technologies](#technologies) |
@@ -11,16 +11,16 @@ Resinas Botânicas frontend, a test ecommerce application, still under construct
 
 ## About
 
-This project is a simple application that satisfies the needs of Resinas Botânicas virtual store (@resinasbotanicas on instagram)
+This project is a simple application that meets the needs of Resinas Botânicas virtual store (@resinasbotanicas on Instagram).
 
 ## Technologies
 
-React, axios, bootstrap, react hook form, react query, react toastify, styled components, yup, eslint, prettier
+React | axios | bootstrap | react-hook-form | react-query | react-toastify | styled-components | yup | eslint | prettier
 
 ## Installation Guide
 
 - Clone this repository
-- Run `npm i` to installl dependencies
+- Run `npm i` to install all dependencies
 
 ## How to Run
 
