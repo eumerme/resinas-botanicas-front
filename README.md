@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# resinas-botanicas-front
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Resinas Botânicas frontend, a test ecommerce application, still under construction. To use the backend, see [this repository](https://github.com/eumerme/resinas-botanicas-back) and follow the instructions in README.md
 
-## Available Scripts
+[About](#about) |
+[Technologies](#technologies) |
+[Installation Guide](#installation-guide) |
+[How to Run](#how-to-run) |
+[Functionalities](#functionalities) |
+[Checkout](#checkout)
 
-In the project directory, you can run:
+## About
 
-### `npm start`
+This project is a simple application that satisfies the needs of Resinas Botânicas virtual store (@resinasbotanicas on instagram)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+React, axios, bootstrap, react hook form, react query, react toastify, styled components, yup, eslint, prettier
+```
 
-### `npm test`
+## Installation Guide
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Clone this repository
+- Run `npm i` to installl dependencies
 
-### `npm run build`
+## How to Run
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Create a `.env` file as in `.env.example` file
+- Run `npm start` to start the local server
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Functionalities
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- User registration and login: allows users to create an account and login to access the site.
+- Homepage: features a carousel of images that lead to respective categories, along with the six most recently added products, to highlight the most popular items.
+- Categories: lists all products within their respective categories for easy user navigation.
+- Product details: displays detailed images of the product, description, name, price, and quantity in stock.
+- Shopping cart: enables users to add or remove products, view saved products, and see the total purchase and product amount.
+- Checkout: [TEST] offers integrated payment via Stripe. For more information, please see the [checkout](#checkout) section. (_under construction_)
+- Profile: allows users to view and update their profile information, for a personalized experience on the site. (_under construction_)
+- Purchase history: will provide a history of the users' previous purchases, so they can keep track of their transactions. (_under construction_)
 
-### `npm run eject`
+### Checkout
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Use any of these test cards to simulate a payment.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| Payment                 | Card number         |
+| ----------------------- | ------------------- |
+| Succeeds                | 4242 4242 4242 4242 |
+| Requires authentication | 4000 0025 0000 3155 |
+| Declined                | 4000 0000 0000 9995 |
